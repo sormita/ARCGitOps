@@ -33,6 +33,11 @@ spec:
         image: arck8scr.azurecr.io/patientservice:1
         imagePullPolicy: ""
         name: patientservice
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
         ports:
         - containerPort: 81
         resources: {}

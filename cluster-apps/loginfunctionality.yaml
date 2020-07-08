@@ -36,6 +36,11 @@ spec:
         image: arck8scr.azurecr.io/loginfunctionality:latest
         imagePullPolicy: Always             
         name: loginfunctionality
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
         ports:
         - containerPort: 80
         resources: {}
