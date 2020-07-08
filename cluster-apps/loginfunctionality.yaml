@@ -10,7 +10,7 @@ metadata:
     io.kompose.service: loginfunctionality
   name: loginfunctionality
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: loginfunctionality
