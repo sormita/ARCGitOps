@@ -34,8 +34,7 @@ spec:
         - name: WebApiBaseUrl
           value: ' http://20.185.77.158:5018/api/'
         image: arck8scr.azurecr.io/loginfunctionality:latest
-        imagePullPolicy: Always
-             
+        imagePullPolicy: Always             
         name: loginfunctionality
         ports:
         - containerPort: 80
