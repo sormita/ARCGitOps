@@ -9,5 +9,9 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: loginservicedapr
-  targetCPUUtilizationPercentage: 50 # target CPU utilization
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 50
 
