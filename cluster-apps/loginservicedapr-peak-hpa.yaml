@@ -1,10 +1,10 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:  
-  name: loginservicedapr-hpa
+  name: loginservicedapr-peak-hpa
 spec:
-  maxReplicas: 10 # define max replica count
-  minReplicas: 2  # define min replica count
+  maxReplicas: 15 # define max replica count
+  minReplicas: 7  # define min replica count
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
@@ -15,11 +15,11 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 50
+        averageUtilization: 85
   - type: Pods
     pods:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 50
+        averageUtilization: 85
 
