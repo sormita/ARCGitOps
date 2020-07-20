@@ -33,7 +33,7 @@ spec:
           value: ' rediscache:6379'
         - name: WebApiBaseUrl
           value: ' http://20.185.77.158:5018/api/'
-        image: arck8scr.azurecr.io/loginfunctionality:latest
+        image: arck8scr.azurecr.io/loginfunctionality:1479
         imagePullPolicy: Always             
         name: loginfunctionality
         resources:
