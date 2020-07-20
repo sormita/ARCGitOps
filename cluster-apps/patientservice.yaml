@@ -26,11 +26,13 @@ spec:
       labels:
         io.kompose.service: patientservice
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
       - env:
         - name: ConnectionString
           value: ' User ID=postgres;Password=secret1234;Host=postgresdata;Port=51036;Database=postgres;'
-        image: arck8scr.azurecr.io/patientservice:1
+        image: arck8scr.azurecr.io/patientservice:1478
         imagePullPolicy: ""
         name: patientservice
         resources:
