@@ -35,7 +35,12 @@ spec:
           value: ' http://20.185.77.158:5018/api/'
         image: arck8scr.azurecr.io/loginfunctionality:latest
         imagePullPolicy: Always             
-        name: loginfunctionality               
+        name: loginfunctionality
+        resources:
+          requests:
+            cpu: "250m"
+          limits:
+            cpu: "500m"               
         ports:
         - containerPort: 80
         resources: {}
