@@ -31,7 +31,12 @@ spec:
           value: ' User ID=postgres;Password=secret1234;Host=postgresdata;Port=51036;Database=postgres;'
         image: arck8scr.azurecr.io/loginservicedapr:latest
         imagePullPolicy: ""
-        name: loginservicedapr                                  
+        name: loginservicedapr
+        resources:
+          requests:
+            cpu: "250m"
+          limits:
+            cpu: "500m"                                  
         ports:
         - containerPort: 80        
       restartPolicy: Always
