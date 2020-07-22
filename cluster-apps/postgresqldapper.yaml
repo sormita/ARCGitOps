@@ -31,7 +31,12 @@ spec:
           value: ' User ID=postgres;Password=secret1234;Host=postgresdata;Port=5432;Database=postgres;'
         image: arck8scr.azurecr.io/postgresqldapper:latest
         imagePullPolicy: ""
-        name: postgresqldapper                
+        name: postgresqldapper 
+        resources:
+          requests:
+            cpu: "250m"
+          limits:
+            cpu: "500m"                      
         ports:
         - containerPort: 5001
         resources: {}
