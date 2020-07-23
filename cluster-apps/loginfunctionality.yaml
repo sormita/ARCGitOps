@@ -24,8 +24,8 @@ spec:
       creationTimestamp: null
       labels:
         io.kompose.service: loginfunctionality
-    spec:      
-      containers:      
+    spec:
+      containers:
       - env:
         - name: ASPNETCORE_ENVIRONMENT
           value: ' Development'
@@ -33,9 +33,9 @@ spec:
           value: ' rediscache:6379'
         - name: WebApiBaseUrl
           value: ' http://20.185.77.158:5018/api/'
+        name: loginfunctionality       
         image: arck8scr.azurecr.io/loginfunctionality:latest
-        imagePullPolicy: Always             
-        name: loginfunctionality
+        imagePullPolicy: Always
         resources:
           requests:
             cpu: "250m"
@@ -43,7 +43,6 @@ spec:
             cpu: "500m"               
         ports:
         - containerPort: 80
-        resources: {}
       restartPolicy: Always
       serviceAccountName: ""
       volumes: null
