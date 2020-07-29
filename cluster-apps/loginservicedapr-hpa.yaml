@@ -12,3 +12,4 @@ spec:
     name: loginservicedapr
   targetCPUUtilizationPercentage: 50
 
+#This is a comment
