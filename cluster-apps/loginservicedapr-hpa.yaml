@@ -11,5 +11,3 @@ spec:
     kind: Deployment
     name: loginservicedapr
   targetCPUUtilizationPercentage: 50
-
-#This is a comment
