@@ -11,6 +11,8 @@ metadata:
     io.kompose.service: apigateway
   name: apigateway
 spec:
+  imagePullSecrets:
+        - name: regcred
   selector:
     matchLabels:
       io.kompose.service: apigateway
