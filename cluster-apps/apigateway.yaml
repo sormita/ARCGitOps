@@ -27,7 +27,7 @@ spec:
         io.kompose.service: apigateway
     spec:  
       imagePullSecrets:
-        - name: regcred      
+       - name: regcred      
       containers: 
       - args:
         - -c

@@ -27,7 +27,7 @@ spec:
         io.kompose.service: loginfunctionality
     spec:
       imagePullSecrets:
-        - name: regcred
+       - name: regcred
       containers:
       - env:
         - name: ASPNETCORE_ENVIRONMENT

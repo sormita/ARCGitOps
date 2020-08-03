@@ -26,7 +26,7 @@ spec:
         io.kompose.service: loginservicedapr
     spec:
       imagePullSecrets:
-        - name: regcred 
+       - name: regcred 
       containers:       
       - env:
         - name: ConnectionString
