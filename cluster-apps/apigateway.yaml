@@ -26,7 +26,7 @@ spec:
         io.kompose.service: apigateway
     spec:
       containers:
-      - image: healthcareakscicdacr.azurecr.io/apigateway:latest
+      - image: arck8scr.azurecr.io/apigateway:1524
         imagePullPolicy: ""
         name: apigateway
         ports:
