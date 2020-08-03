@@ -11,8 +11,7 @@ metadata:
     io.kompose.service: loginfunctionality
   name: loginfunctionality
 spec:
-  imagePullSecrets:
-        - name: regcred
+  
   selector:
     matchLabels:
       io.kompose.service: loginfunctionality
@@ -27,6 +26,8 @@ spec:
       labels:
         io.kompose.service: loginfunctionality
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
       - env:
         - name: ASPNETCORE_ENVIRONMENT
@@ -34,9 +35,9 @@ spec:
         - name: RedisCacheConnection
           value: ' rediscache:6379'
         - name: WebApiBaseUrl
-          value: ' http://20.185.77.158:5018/api/'
+          value: ' http://10.0.226.159:5018/api/'
         name: loginfunctionality       
-        image: arck8scr.azurecr.io/loginfunctionality:latest
+        image: arck8scr.azurecr.io/loginfunctionality:1522
         imagePullPolicy: Always
         resources:
           requests:

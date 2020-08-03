@@ -25,9 +25,9 @@ spec:
       creationTimestamp: null
       labels:
         io.kompose.service: apigateway
-    spec:
+    spec:  
       imagePullSecrets:
-        - name: regcred
+        - name: regcred      
       containers: 
       - args:
         - -c

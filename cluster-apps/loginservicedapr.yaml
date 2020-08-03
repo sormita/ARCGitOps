@@ -10,9 +10,7 @@ metadata:
   labels:
     io.kompose.service: loginservicedapr
   name: loginservicedapr
-spec:
-  imagePullSecrets:
-        - name: regcred  
+spec:   
   selector:
     matchLabels:
       io.kompose.service: loginservicedapr
@@ -27,11 +25,13 @@ spec:
       labels:
         io.kompose.service: loginservicedapr
     spec:
+      imagePullSecrets:
+        - name: regcred 
       containers:       
       - env:
         - name: ConnectionString
-          value: ' User ID=postgres;Password=secret1234;Host=postgresdata-postgresql;Port=5432;Database=postgres;'         
-        image: arck8scr.azurecr.io/loginservicedapr:latest
+          value: ' User ID=postgres;Password=secret1234;Host=postgresdata-postgresql;Port=5432;Database=postgres;'
+        image: arck8scr.azurecr.io/loginservicedapr:1522
         imagePullPolicy: ""
         name: loginservicedapr
         resources:
