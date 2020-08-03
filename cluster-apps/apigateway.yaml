@@ -3,42 +3,39 @@ kind: Deployment
 metadata:
   annotations:
     fluxcd.io/automated: "true"
-    kompose.cmd: XXXXXX\tools\kompose.exe
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe
       convert
     kompose.version: 1.21.0 (992df58d8)
   creationTimestamp: null
   labels:
-    io.kompose.service: loginservicedapr
-  name: loginservicedapr
-spec:  
+    io.kompose.service: apigateway
+  name: apigateway
+spec:
   selector:
     matchLabels:
-      io.kompose.service: loginservicedapr
+      io.kompose.service: apigateway
   strategy: {}
   template:
     metadata:
       annotations:
-        kompose.cmd: XXXXXX\kompose.exe
+        kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe
           convert
         kompose.version: 1.21.0 (992df58d8)
       creationTimestamp: null
       labels:
-        io.kompose.service: loginservicedapr
+        io.kompose.service: apigateway
     spec:
-      containers:       
-      - env:
-        - name: ConnectionString
-          value: ' User ID=postgres;Password=secret1234;Host=postgresdata-postgresql;Port=5432;Database=postgres;'         
-        image: arck8scr.azurecr.io/loginservicedapr:latest
+      containers:
+      - image: healthcareakscicdacr.azurecr.io/apigateway:latest
         imagePullPolicy: ""
-        name: loginservicedapr
+        name: apigateway
+        ports:
+        - containerPort: 81
         resources:
           requests:
             cpu: "250m"
           limits:
             cpu: "500m"
-        ports:
-        - containerPort: 80        
       restartPolicy: Always
       serviceAccountName: ""
       volumes: null
@@ -48,20 +45,21 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    kompose.cmd: XXXXXXXXXX\kompose.exe
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe
       convert
     kompose.version: 1.21.0 (992df58d8)
   creationTimestamp: null
   labels:
-    io.kompose.service: loginservicedapr
-  name: loginservicedapr
+    io.kompose.service: apigateway
+  name: apigateway
 spec:
   type: LoadBalancer
   ports:
-  - name: "5016"
-    port: 5016
-    targetPort: 80
+  - name: "5018"
+    port: 5018
+    targetPort: 81
   selector:
-    io.kompose.service: loginservicedapr
+    io.kompose.service: apigateway
 status:
   loadBalancer: {}
+
