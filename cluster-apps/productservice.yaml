@@ -8,13 +8,12 @@ metadata:
     kompose.version: 1.21.0 (992df58d8)
   creationTimestamp: null
   labels:
-    io.kompose.service: loginfunctionality
-  name: loginfunctionality
-spec:
-  
+    io.kompose.service: productservice
+  name: productservice
+spec:  
   selector:
     matchLabels:
-      io.kompose.service: loginfunctionality
+      io.kompose.service: productservice
   strategy: {}
   template:
     metadata:
@@ -24,28 +23,24 @@ spec:
         kompose.version: 1.21.0 (992df58d8)
       creationTimestamp: null
       labels:
-        io.kompose.service: loginfunctionality
+        io.kompose.service: productservice
     spec:
       imagePullSecrets:
        - name: regcred
       containers:
       - env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: ' Development'
-        - name: RedisCacheConnection
-          value: ' rediscache:6379'
-        - name: WebApiBaseUrl
-          value: ' http://10.0.157.203:5018/api/'
-        name: loginfunctionality       
-        image: arck8scr.azurecr.io/loginfunctionality:1522
-        imagePullPolicy: Always
+        - name: ConnectionString
+          value: ' User ID=postgres;Password=secret1234;Host=postgresdata-postgresql;Port=5432;Database=postgresdb;'
+        image: arck8scr.azurecr.io/productservice:1529
+        imagePullPolicy: ""
+        name: productservice
+        ports:
+        - containerPort: 80
         resources:
           requests:
             cpu: "250m"
           limits:
-            cpu: "500m"               
-        ports:
-        - containerPort: 80
+            cpu: "500m"
       restartPolicy: Always
       serviceAccountName: ""
       volumes: null
@@ -60,16 +55,16 @@ metadata:
     kompose.version: 1.21.0 (992df58d8)
   creationTimestamp: null
   labels:
-    io.kompose.service: loginfunctionality
-  name: loginfunctionality
+    io.kompose.service: productservice
+  name: productservice
 spec:
   type: LoadBalancer
   ports:
-  - name: "5014"
-    port: 5014
+  - name: "5020"
+    port: 5020
     targetPort: 80
   selector:
-    io.kompose.service: loginfunctionality
+    io.kompose.service: productservice
 status:
   loadBalancer: {}
 
