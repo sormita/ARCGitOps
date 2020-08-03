@@ -9,8 +9,7 @@ metadata:
   labels:
     io.kompose.service: loginservicedapr
   name: loginservicedapr
-spec:
-  replicas: 1
+spec:  
   selector:
     matchLabels:
       io.kompose.service: loginservicedapr
@@ -25,9 +24,10 @@ spec:
       labels:
         io.kompose.service: loginservicedapr
     spec:
-      containers: 
-      - args:
-        - -c         
+      containers:       
+      - env:
+        - name: ConnectionString
+          value: ' User ID=postgres;Password=secret1234;Host=postgresdata-postgresql;Port=5432;Database=postgres;'         
         image: arck8scr.azurecr.io/loginservicedapr:latest
         imagePullPolicy: ""
         name: loginservicedapr
