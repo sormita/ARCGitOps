@@ -11,8 +11,7 @@ metadata:
     io.kompose.service: apigateway
   name: apigateway
 spec:
-  imagePullSecrets:
-        - name: regcred
+  
   selector:
     matchLabels:
       io.kompose.service: apigateway
@@ -27,8 +26,12 @@ spec:
       labels:
         io.kompose.service: apigateway
     spec:
-      containers:
-      - image: arck8scr.azurecr.io/apigateway:1524
+      imagePullSecrets:
+        - name: regcred
+      containers: 
+      - args:
+        - -c
+        image: arck8scr.azurecr.io/apigateway:1524
         imagePullPolicy: ""
         name: apigateway
         ports:
