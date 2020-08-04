@@ -33,11 +33,11 @@ spec:
         - name: ASPNETCORE_ENVIRONMENT
           value: ' Development'
         - name: RedisCacheConnection
-          value: ' rediscache:6379'
+          value: ' 10.0.121.179:6379'
         - name: WebApiBaseUrl
           value: ' http://10.0.157.203:5018/api/'
         name: loginfunctionality       
-        image: arck8scr.azurecr.io/loginfunctionality:1522
+        image: arck8scr.azurecr.io/loginfunctionality:1562
         imagePullPolicy: Always
         resources:
           requests:

@@ -31,7 +31,7 @@ spec:
       containers: 
       - args:
         - -c
-        image: arck8scr.azurecr.io/apigateway:1524
+        image: arck8scr.azurecr.io/apigateway:1544
         imagePullPolicy: ""
         name: apigateway
         ports:
