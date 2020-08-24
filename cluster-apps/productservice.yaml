@@ -1,3 +1,4 @@
+scaleTargetRef:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -10,6 +11,19 @@ metadata:
   labels:
     io.kompose.service: productservice
   name: productservice
+  behavior:
+  scaleUp:
+    stabilizationWindowSeconds: 0
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+  scaleDown:
+    stabilizationWindowSeconds: 300
+    policies:
+    - type: Percent
+      value: 50
+      periodSeconds: 60
 spec:  
   selector:
     matchLabels:
