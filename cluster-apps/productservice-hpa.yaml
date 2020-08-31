@@ -11,3 +11,4 @@ spec:
     kind: Deployment
     name: productservice
   targetCPUUtilizationPercentage: 6
+  
