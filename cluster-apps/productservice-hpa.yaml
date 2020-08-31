@@ -4,10 +4,10 @@ metadata:
   name: productservice-hpa
   namespace: default
 spec:
-  maxReplicas: 4 #define max replica counts
-  minReplicas: 0 #define min replica count
+  maxReplicas: 5 #define max replica counts
+  minReplicas: 2 #define min replica count
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: productservice
-  targetCPUUtilizationPercentage: 14  
+  targetCPUUtilizationPercentage: 12  
